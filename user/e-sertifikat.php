@@ -23,11 +23,9 @@ if (isset($_SESSION["ses_username"]) == "") {
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta description -->
-  <meta name="description" content="Beasiswa Pendidikan Dosen Indonesia" />
-  <meta name="author" content="Direktorat Sumber Daya" />
 
   <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
   <meta property="og:site_name" content="" />
@@ -45,34 +43,14 @@ if (isset($_SESSION["ses_username"]) == "") {
   <meta property="og:type" content="article" />
 
   <!--title-->
-  <title>Unduh E-Sertifikat - Seminar Nasional Jurusan Kesehatan</title>
+  <title>Unduh E-Sertifikat - Semnas Jurusan Kesehatan Gigi Poltekkes Surabaya</title>
 
-  <!--favicon icon-->
-  <link rel="icon" href="./favicons/hikes.png" type="image/png" sizes="16x16" />
 
-  <!--google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans:400,600&amp;display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <?php
 
-  <!--Bootstrap css-->
-  <link rel="stylesheet" href="./css/css-bootstrap.min.css" />
-  <!--Magnific popup css-->
-  <link rel="stylesheet" href="./css/css-magnific-popup.css" />
-  <!--Themify icon css-->
-  <link rel="stylesheet" href="./css/css-themify-icons.css" />
-  <!--Fontawesome icon css-->
-  <link rel="stylesheet" href="./css/css-all.min.css" />
-  <!--animated css-->
-  <link rel="stylesheet" href="./css/css-animate.min.css" />
-  <!--ytplayer css-->
-  <link rel="stylesheet" href="./css/css-jquery.mb.YTPlayer.min.css" />
-  <!--Owl carousel css-->
-  <link rel="stylesheet" href="./css/css-owl.carousel.min.css" />
-  <link rel="stylesheet" href="./css/css-owl.theme.default.min.css" />
-  <!--custom css-->
-  <link rel="stylesheet" href="./css/css-style.css" />
-  <!--responsive css-->
-  <link rel="stylesheet" href="./css/css-responsive.css" />
+  include('layouts/head.php')
+
+  ?>
 </head>
 
 <body>
@@ -138,7 +116,7 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                 <div class="single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded align-items-center">
                   <h4>Informasi Penting</h4>
-                  <p>Pastikan sebelum mengunduh e-sertifikat, silahkan cek kembali nama anda, e-sertifikat hanya dapat di download sekali saja, apabila terdapat kesalahan segera lakukan perubahan melalui menu profil, karena nama yang terdaftar akan tercantum pada e-sertifikat yang tergenerate secara otomatis, sekian terimakasih.</p>
+                  <p>Pastikan sebelum mengunduh e-sertifikat, silahkan cek kembali nama dan email anda, e-sertifikat hanya dapat di download sekali saja, dikirim melalui email anda, apabila terdapat kesalahan segera lakukan perubahan melalui menu profil, karena nama yang terdaftar akan tercantum pada e-sertifikat yang tergenerate secara otomatis lalu dikirim ke email anda, sekian terimakasih.</p>
                 </div>
               </div>
 
@@ -148,7 +126,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                 <?php
 
                 $BanyakDataPerHal = 6;
-                $BanyakData = mysqli_num_rows(mysqli_query($koneksi, "SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_paket.nama as nama_paket, tb_pendaftaran.status, tb_sertifikat.url, tb_sertifikat.status as status_unduh FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_sertifikat ON tb_paket.id_sertifikat=tb_sertifikat.id INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id' AND tb_pendaftaran.status = 'lunas' AND tb_pendaftaran.sertifikat = 'aktif'"));
+                $BanyakData = mysqli_num_rows(mysqli_query($koneksi, "SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_paket.nama as nama_paket, tb_sertifikat.url, tb_sertifikat.status as status_unduh, tb_pendaftaran.status_sertifikat FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_sertifikat ON tb_paket.id_sertifikat=tb_sertifikat.id INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id' AND tb_pendaftaran.status = 'lunas'"));
                 $BanyakHal = ceil($BanyakData / $BanyakDataPerHal);
 
                 if (isset($_GET['halaman'])) {
@@ -159,7 +137,7 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                 $DataAwal = ($BanyakDataPerHal * $halamanAktif) - $BanyakDataPerHal;
 
-                $query = ("SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_paket.nama as nama_paket, tb_sertifikat.url, tb_sertifikat.status as status_unduh, tb_pendaftaran.sertifikat FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_sertifikat ON tb_paket.id_sertifikat=tb_sertifikat.id INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id' AND tb_pendaftaran.status = 'lunas' limit $DataAwal, $BanyakDataPerHal");
+                $query = ("SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_paket.nama as nama_paket, tb_sertifikat.url, tb_sertifikat.status as status_unduh, tb_pendaftaran.status_sertifikat FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_sertifikat ON tb_paket.id_sertifikat=tb_sertifikat.id INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id' AND tb_pendaftaran.status = 'lunas' order by tb_pendaftaran.id asc limit $DataAwal, $BanyakDataPerHal");
                 $result = mysqli_query($koneksi, $query);
 
 
@@ -171,7 +149,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                   $Nama_Paket = $row['nama_paket'];
                   $Url_Sertifikat = $row['url'];
                   $StatusUnduh = $row['status_unduh'];
-                  $StatusSertifikat = $row['sertifikat'];
+                  $StatusSertifikat = $row['status_sertifikat'];
 
 
 
@@ -179,31 +157,11 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                   <?php
 
-               
-
-if ($StatusUnduh == "aktif" && $StatusSertifikat == "aktif") {
-
-  echo "
-
-   <div class='col-md-4 col-lg-4'>
-  <div class='single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded'>
-    <div class='circle-icon'>
-      <span class='fa fa-address-card text-white'></span>
-    </div>
-    <h5>$Nama_Seminar</h5>
-    <p>$Nama_Paket</p>
-
-    <a class='btn btn-success' href='#' data-bs-toggle='modal' data-bs-target='#Unduh-Sertifikat$Id_Pendaftaran'><i class='fa fa fa-download'></i></a>
 
 
-  </div>
-</div>
+                  if ($StatusUnduh == "aktif" && $StatusSertifikat == "aktif") {
 
-
-  ";
-} elseif ($StatusUnduh == "aktif" && $StatusSertifikat == "tidak_aktif") {
-
-  echo "
+                    echo "
 
    <div class='col-md-4 col-lg-4'>
   <div class='single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded'>
@@ -213,7 +171,7 @@ if ($StatusUnduh == "aktif" && $StatusSertifikat == "aktif") {
     <h5>$Nama_Seminar</h5>
     <p>$Nama_Paket</p>
 
-    <a class='btn btn-success' href='#' data-bs-toggle='modal' data-bs-target='#Sudah-Download$Id_Pendaftaran'><i class='fa fa fa-download'></i></a>
+    <a class='btn btn-success' href='' data-bs-toggle='modal' data-bs-target='#Unduh-Sertifikat$Id_Pendaftaran'><i class='fa fa fa-download'></i></a>
 
 
   </div>
@@ -221,12 +179,9 @@ if ($StatusUnduh == "aktif" && $StatusSertifikat == "aktif") {
 
 
   ";
-}
+                  } elseif ($StatusUnduh == "aktif" && $StatusSertifikat == "tidak_aktif") {
 
-elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
-
-
-  echo "
+                    echo "
 
    <div class='col-md-4 col-lg-4'>
   <div class='single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded'>
@@ -236,7 +191,7 @@ elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
     <h5>$Nama_Seminar</h5>
     <p>$Nama_Paket</p>
 
-    <a class='btn btn-success' href='#' data-bs-toggle='modal' data-bs-target='#Belum-Tersedia$Id_Pendaftaran'><i class='fa fa fa-download'></i></a>
+    <a class='btn btn-success' href='' data-bs-toggle='modal' data-bs-target='#Sudah-Download$Id_Pendaftaran'><i class='fa fa fa-download'></i></a>
 
 
   </div>
@@ -244,10 +199,31 @@ elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
 
 
   ";
-}
+                  } elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
 
 
-?>
+                    echo "
+
+   <div class='col-md-4 col-lg-4'>
+  <div class='single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded'>
+    <div class='circle-icon'>
+      <span class='fa fa-address-card text-white'></span>
+    </div>
+    <h5>$Nama_Seminar</h5>
+    <p>$Nama_Paket</p>
+
+    <a class='btn btn-success' href='' data-bs-toggle='modal' data-bs-target='#Belum-Tersedia$Id_Pendaftaran'><i class='fa fa fa-download'></i></a>
+
+
+  </div>
+</div>
+
+
+  ";
+                  }
+
+
+                  ?>
 
 
 
@@ -261,9 +237,9 @@ elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        
-                            <form action="e-sertifikat?url=<?=$Url_Sertifikat?>" method="post">
-                             
+
+                          <form action="e-sertifikat?url=<?= $Url_Sertifikat ?>" method="post">
+
                             <div class="mb-3">
                               <p>* Informasi * <br> E-Sertifikat Semnas akan dikirim melalui email paling lambat 1 jam setelah anda melakukan submit, sekian terimakasih.</p>
                               <label for="formFileSm" class="form-label">Name</label>
@@ -275,11 +251,11 @@ elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
                             </div>
                         </div>
                         <div class="modal-footer">
-                    <button name="unduh-sertifikat" class="btn btn-success btn-sm">Submit</button>
+                          <button name="unduh-sertifikat" class="btn btn-success btn-sm">Submit</button>
                           <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
                         </div>
                         </form>
-                      
+
                       </div>
                     </div>
                   </div>
@@ -305,8 +281,8 @@ elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
                   </div>
 
                   <!-- End Modal Error -->
-                  
-                   <!-- Modal Sudah Download -->
+
+                  <!-- Modal Sudah Download -->
                   <div class="modal fade" id="Sudah-Download<?= $Id_Pendaftaran ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -420,35 +396,11 @@ elseif ($StatusUnduh == "tidak_aktif" && $StatusSertifikat == "aktif") {
   </button>
   <!--bottom to top button end-->
 
-  <!--jQuery-->
-  <script src="./js/js-jquery-3.5.0.min.js"></script>
-  <!--Popper js-->
-  <script src="./js/js-popper.min.js"></script>
-  <!--Bootstrap js-->
-  <script src="./js/js-bootstrap.min.js"></script>
-  <!--Magnific popup js-->
-  <script src="./js/js-jquery.magnific-popup.min.js"></script>
-  <!--jquery easing js-->
-  <script src="./js/js-jquery.easing.min.js"></script>
-  <!--jquery ytplayer js-->
-  <script src="./js/js-jquery.mb.YTPlayer.min.js"></script>
-  <!--Isotope filter js-->
-  <script src="./js/js-mixitup.min.js"></script>
-  <!--wow js-->
-  <script src="./js/js-wow.min.js"></script>
-  <!--owl carousel js-->
-  <script src="./js/js-owl.carousel.min.js"></script>
-  <!--countdown js-->
-  <script src="./js/js-jquery.countdown.min.js"></script>
-  <!--jquery easypiechart-->
-  <script src="./js/js-jquery.easy-pie-chart.js"></script>
-  <!--custom js-->
-  <script src="./js/js-scripts.js"></script>
+  <?php
 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  include('layouts/body.php')
+
+  ?>
 
 
 
@@ -466,24 +418,24 @@ include('layouts/proseseditprofil.php')
 
 
 <?php
-    
-    if (isset($_POST['unduh-sertifikat'])) {
-        
-    $urlsertif = $_GET['url'];
-        
 
-    $query    = "update tb_pendaftaran SET sertifikat = 'tidak_aktif' where id_user = '$data_id'";
-    $result   = mysqli_query($koneksi, $query);
+if (isset($_POST['unduh-sertifikat'])) {
+
+  $urlsertif = $_GET['url'];
 
 
-    if ($result) {
+  $query    = "update tb_pendaftaran SET status_sertifikat = 'tidak_aktif' where id_user = '$data_id'";
+  $result   = mysqli_query($koneksi, $query);
+
+
+  if ($result) {
     //   echo "<script>
     //             Swal.fire({title: 'Unduh Sertifikat Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'
     //             }).then((result) => {if (result.value)
-    //                 {window.location = 'seminar';}
+    //                 {window.location = '';}
     //             })</script>";
-    
-    
+
+
     echo "
     
       <br>
@@ -496,21 +448,17 @@ include('layouts/proseseditprofil.php')
   <script type='text/javascript'>
     $('#formsertifbos').submit();
   </script>
-";   
-    
+";
+  } else {
 
-        
-    } else {
-
-      echo "<script>
+    echo "<script>
                     Swal.fire({title: 'Terjadi Kesalahan',text: '',icon: 'error',confirmButtonText: 'OK'
                     }).then((result) => {if (result.value)
-                        {window.location = 'seminar';}
+                        {window.location = '';}
                     })</script>";
-    }
-    
+  }
 }
 
-  
+
 
 ?>

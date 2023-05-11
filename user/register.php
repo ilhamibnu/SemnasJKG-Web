@@ -9,10 +9,9 @@ session_start();
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Register - Semnas</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
     <!-- Load Favicon-->
     <link rel="icon" href="./favicons/hikes.png" type="image/png" sizes="16x16" />
     <!-- Load Material Icons from Google Fonts-->
@@ -20,9 +19,12 @@ session_start();
     <!-- Roboto and Roboto Mono fonts from Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+     <link rel="stylesheet" href="./fontawesome/css/all.css" />
     <!-- Load main stylesheet-->
     <link href="./css/styles.css" rel="stylesheet" />
+     <link href="./sweetalert2/sweetalert2.min.css" rel="stylesheet">
+    
 </head>
 
 <body class="bg-pattern-waihou">
@@ -55,16 +57,24 @@ session_start();
 
                                                 <input class="form-control form-control" id="identity" name="nama" type="text" placeholder="Name" required>
                                                 <label class="form-label" for="password"></label>
+                                                
                                                 <div class="form-group">
-                                                    <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="id_kampus">
+                                                    <select class="form-select form-control form-control-sm" id="domisili" onchange="domisilicuy()">
                                                         <?php
 
-                                                        echo "<option> Pilih Kampus</option>";
-                                                        $query = mysqli_query($koneksi, "SELECT * from tb_kampus") or die(mysqli_error($koneksi));
+                                                        echo "<option> Pilih Domisili</option>";
+                                                        $query = mysqli_query($koneksi, "SELECT * from tb_domisili") or die(mysqli_error($koneksi));
                                                         while ($row = mysqli_fetch_array($query)) {
                                                             echo "<option value=$row[id]> $row[nama]</option>";
                                                         }
                                                         ?>
+
+                                                    </select>
+                                                </div>
+                                                 <label class="form-label" for="password"></label>
+                                                <div class="form-group">
+                                                    <select id="kampus" class="form-select form-control form-control-sm" name="id_kampus">
+                                                        <option value="">Pilih Kampus</option>
 
                                                     </select>
                                                 </div>
@@ -91,7 +101,7 @@ session_start();
                                         </div>
                                     </div>
                                     <!-- Background image column using inline CSS-->
-                                    <div class="col-lg-7 col-md-6 d-none d-md-block" style="background-image: url('https://beasiswadosen.kemdikbud.go.id/v2/assets/frontend/img/scholarship.png'); background-size: cover; background-repeat: no-repeat; background-position: center"></div>
+                                    <div class="col-lg-7 col-md-6 d-none d-md-block" style="background-image: url('./images/img-scholarship.png'); background-size: cover; background-repeat: no-repeat; background-position: center"></div>
                                 </div>
                             </div>
                         </div>
@@ -108,13 +118,34 @@ session_start();
     <script type="module" src="./js/material.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="./sweetalert2/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+        <script>
+        function domisilicuy() {
+            var id_domisili = $('#domisili').val();
+            $('#kampus').load("register.php?id_domisili=" + id_domisili + "");
+        }
+    </script>
 
 </body>
 
 </html>
+
+<?php
+
+include '../connection/koneksi.php';
+
+error_reporting(1);
+
+$id = $_GET['id_domisili'];
+$query = mysqli_query($koneksi, "SELECT * from tb_kampus where id_domisili = '$id'");
+while ($data = mysqli_fetch_array($query)) {
+?>
+    <option value="<?php echo $data['id'] ?>"><?php echo $data['nama'] ?></option>
+<?php
+}
+?>
 
 <?php
 
@@ -135,7 +166,7 @@ if (isset($_POST['register'])) {
         echo "<script>
         Swal.fire({title: 'Username Telah Terdafar',text: '',icon: 'error',confirmButtonText: 'OK'
         }).then((result) => {if (result.value)
-            {window.location = 'register';}
+            {window.location = '';}
         })</script>";
     } else {
 
@@ -146,7 +177,7 @@ if (isset($_POST['register'])) {
             echo "<script>
         Swal.fire({title: 'Email Telah Terdafar',text: '',icon: 'error',confirmButtonText: 'OK'
         }).then((result) => {if (result.value)
-            {window.location = 'register';}
+            {window.location = '';}
         })</script>";
         } else {
 
@@ -207,7 +238,7 @@ if (isset($_POST['register'])) {
                 echo "<script>
                     Swal.fire({title: 'Password Tidak Sama',text: '',icon: 'error',confirmButtonText: 'OK'
                     }).then((result) => {if (result.value)
-                        {window.location = 'register';}
+                        {window.location = '';}
                     })</script>";
             }
         }

@@ -24,11 +24,8 @@ if (isset($_SESSION["ses_username"]) == "") {
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- SEO Meta description -->
-  <meta name="description" content="Beasiswa Pendidikan Dosen Indonesia" />
-  <meta name="author" content="Direktorat Sumber Daya" />
 
   <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
   <meta property="og:site_name" content="" />
@@ -46,35 +43,14 @@ if (isset($_SESSION["ses_username"]) == "") {
   <meta property="og:type" content="article" />
 
   <!--title-->
-  <title>Seminar Anda - Seminar Nasional Jurusan Kesehatan Gigi</title>
+  <title>Seminar Anda - Semnas Jurusan Kesehatan Gigi Poltekkes Surabaya</title>
 
   <!--favicon icon-->
-  <link rel="icon" href="./favicons/hikes.png" type="image/png" sizes="16x16" />
+  <?php
 
-  <!--google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans:400,600&amp;display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  include('layouts/head.php')
 
-  <!--Bootstrap css-->
-  <link rel="stylesheet" href="./css/css-bootstrap.min.css" />
-  <!--Magnific popup css-->
-  <link rel="stylesheet" href="./css/css-magnific-popup.css" />
-  <!--Themify icon css-->
-  <link rel="stylesheet" href="./css/css-themify-icons.css" />
-  <!--Fontawesome icon css-->
-  <link rel="stylesheet" href="./css/css-all.min.css" />
-  <!--animated css-->
-  <link rel="stylesheet" href="./css/css-animate.min.css" />
-  <!--ytplayer css-->
-  <link rel="stylesheet" href="./css/css-jquery.mb.YTPlayer.min.css" />
-  <!--Owl carousel css-->
-  <link rel="stylesheet" href="./css/css-owl.carousel.min.css" />
-  <link rel="stylesheet" href="./css/css-owl.theme.default.min.css" />
-  <!--custom css-->
-  <link rel="stylesheet" href="./css/css-style.css" />
-  <!--responsive css-->
-  <link rel="stylesheet" href="./css/css-responsive.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  ?>
 </head>
 
 <body>
@@ -149,7 +125,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                 <?php
 
                 $BanyakDataPerHal = 6;
-                $BanyakData = mysqli_num_rows(mysqli_query($koneksi, "SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_paket.nama as nama_paket, tb_harga.harga as total_tagihan, tb_pendaftaran.status FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id'"));
+                $BanyakData = mysqli_num_rows(mysqli_query($koneksi, "SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_seminar.group_wa, tb_paket.nama as nama_paket, tb_harga.harga as total_tagihan, tb_pendaftaran.status FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id'"));
                 $BanyakHal = ceil($BanyakData / $BanyakDataPerHal);
 
                 if (isset($_GET['halaman'])) {
@@ -160,7 +136,7 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                 $DataAwal = ($BanyakDataPerHal * $halamanAktif) - $BanyakDataPerHal;
 
-                $query = ("SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_paket.nama as nama_paket, tb_harga.harga as total_tagihan, tb_pendaftaran.status FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id' limit $DataAwal, $BanyakDataPerHal");
+                $query = ("SELECT tb_pendaftaran.id as id_pendaftaran, tb_seminar.nama as nama_seminar, tb_seminar.group_wa, tb_paket.id as id_paket, tb_paket.nama as nama_paket, tb_harga.harga as total_tagihan, tb_pendaftaran.status FROM tb_pendaftaran INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user WHERE tb_user.id = '$data_id' order by tb_pendaftaran.id asc limit $DataAwal, $BanyakDataPerHal");
                 $result = mysqli_query($koneksi, $query);
 
 
@@ -169,10 +145,13 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                   $Id_Pendaftaran = $row['id_pendaftaran'];
                   $Nama_Seminar = $row['nama_seminar'];
+                  $IdPaket = $row['id_paket'];
                   $Nama_Paket = $row['nama_paket'];
                   $Total_Tagihan = $row['total_tagihan'];
+                  $GroupWa = $row['group_wa'];
 
-
+                  $EnDataId = base64_encode($data_id);
+                  $EnIdPaket = base64_encode($IdPaket);
                   $Status = $row['status'];
 
 
@@ -194,9 +173,14 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                      
 
-                      <a class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalHapus$Id_Pendaftaran' href='#'><i class='fa fa fa-trash'></i></a>
+                      <a class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalHapus$Id_Pendaftaran' href=''><i class='fa fa-trash'></i></a>
 
-                      <a class='btn btn-success' href='index'><i class='fa fa fa-whatsapp'></i></a>
+                      <a class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#ModalPresensi$Id_Pendaftaran' href=''><i class='fa fa-check-circle'></i></a>
+
+
+                      <a class='btn btn-success' target ='_blank' href='$GroupWa'><i class='fa-brands fa-whatsapp'></i></a>
+
+                      
                         
                         ";
                       } else {
@@ -205,9 +189,9 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                 
 
-                        <a class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalHapus$Id_Pendaftaran' href='#'><i class='fa fa fa-trash'></i></a>
+                        <a class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#ModalHapus$Id_Pendaftaran' href=''><i class='fa fa fa-trash'></i></a>
                         
-                        <a class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#ModalPembayaran$Id_Pendaftaran' href='#'><i class='fa fa fa-shopping-cart'></i></a>
+                        <a class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#ModalPembayaran$Id_Pendaftaran' href=''><i class='fa fa fa-shopping-cart'></i></a>
                         
                         ";
                       }
@@ -218,6 +202,96 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                     </div>
                   </div>
+
+                  <!-- Modal Presensi -->
+                  <div class="modal fade bd-example-modal-lg" id="ModalPresensi<?= $Id_Pendaftaran ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Kehadiran</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                          <form action="seminar?id_user=<?php echo $EnDataId ?>" method="post">
+
+                            <div class='form-group'>
+                              <label for="formFileSm" class="form-label">Pilih Kehadiran</label>
+                              <select class='form-select form-control form-control-sm' id='exampleFormControlSelect1' name='id_presensi' required>
+                                <option value=''>Pilih Kehadiran</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "SELECT tb_presensi.id, tb_presensi.nama FROM tb_item_presensi INNER JOIN tb_presensi ON tb_item_presensi.id_presensi=tb_presensi.id WHERE tb_item_presensi.id_paket = '$IdPaket' AND (now() between tb_presensi.waktu_mulai and tb_presensi.waktu_habis)") or die(mysqli_error($koneksi));
+                                while ($row = mysqli_fetch_array($query)) {
+                                  echo "<option value=$row[id]> $row[nama]</option>";
+                                }
+
+                                ?>
+                              </select>
+                            </div>
+
+                            <div class="table-responsive">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>No</th>
+                                    <th>Presensi</th>
+                                    <th>Waktu Mulai</th>
+                                    <th>Waktu Selesai</th>
+                                    <th>Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <?php
+                                  $nomer = 1;
+                                  $querydatapresensi = ("SELECT tb_presensi.nama, tb_detail_presensi.status, tb_presensi.waktu_mulai, tb_presensi.waktu_habis FROM tb_detail_presensi INNER JOIN tb_presensi ON tb_presensi.id=tb_detail_presensi.id_presensi INNER JOIN tb_item_presensi ON tb_item_presensi.id_presensi=tb_presensi.id WHERE tb_item_presensi.id_paket = '$IdPaket' AND tb_detail_presensi.id_user = '$data_id'");
+                                  $resultpresensi = mysqli_query($koneksi, $querydatapresensi);
+
+                                  while ($rowpresensi = mysqli_fetch_array($resultpresensi)) {
+
+                                    $NamaPresensi = $rowpresensi['nama'];
+                                    $StatusPresensi = $rowpresensi['status'];
+                                    $WaktuMulai = $rowpresensi['waktu_mulai'];
+                                    $WaktuHabis = $rowpresensi['waktu_habis'];
+
+                                  ?>
+                                    <tr>
+                                      <td style="font-size: 13px;"><?= $nomer++ ?></td>
+                                      <td style="font-size: 13px;"><?= $NamaPresensi ?></td>
+                                      <td style="font-size: 13px;"><?= $WaktuMulai ?></td>
+                                      <td style="font-size: 13px;"><?= $WaktuHabis ?></td>
+                                      <td><?php
+
+                                          if ($StatusPresensi == "sudah") {
+                                            echo "<span class='badge bg-success'>Hadir</span>";
+                                          } else {
+                                            echo "<span class='badge bg-danger'>Tidak Hadir</span>";
+                                          }
+
+
+                                          ?>
+
+                                      </td>
+                                    </tr>
+                                  <?php
+
+                                  }
+                                  ?>
+
+                                </tbody>
+                              </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button name="presensi" class="btn btn-success btn-sm">Submit</button>
+                          <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- End Modal Presensi -->
 
 
                   <!-- Modal Bayar -->
@@ -263,7 +337,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                           <h6>Anda Yakin Keluar Dari Seminar <?= $Nama_Seminar ?> ?</h6>
                         </div>
                         <div class="modal-footer">
-                          <form action="seminar?id=<?= base64_encode($Id_Pendaftaran) ?>" method="post">
+                          <form action="seminar?id=<?= base64_encode($Id_Pendaftaran) ?>&id_paket=<?= base64_encode($IdPaket) ?>&id_user=<?= base64_encode($data_id) ?>" method="post">
                             <button name="hapus-seminar" class="btn btn-danger btn-sm">Delete</button>
                           </form>
                           <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="modal">Close</button>
@@ -362,37 +436,11 @@ if (isset($_SESSION["ses_username"]) == "") {
   </button>
   <!--bottom to top button end-->
 
-  <!--jQuery-->
-  <script src="./js/js-jquery-3.5.0.min.js"></script>
-  <!--Popper js-->
-  <script src="./js/js-popper.min.js"></script>
-  <!--Bootstrap js-->
-  <script src="./js/js-bootstrap.min.js"></script>
-  <!--Magnific popup js-->
-  <script src="./js/js-jquery.magnific-popup.min.js"></script>
-  <!--jquery easing js-->
-  <script src="./js/js-jquery.easing.min.js"></script>
-  <!--jquery ytplayer js-->
-  <script src="./js/js-jquery.mb.YTPlayer.min.js"></script>
-  <!--Isotope filter js-->
-  <script src="./js/js-mixitup.min.js"></script>
-  <!--wow js-->
-  <script src="./js/js-wow.min.js"></script>
-  <!--owl carousel js-->
-  <script src="./js/js-owl.carousel.min.js"></script>
-  <!--countdown js-->
-  <script src="./js/js-jquery.countdown.min.js"></script>
-  <!--jquery easypiechart-->
-  <script src="./js/js-jquery.easy-pie-chart.js"></script>
-  <!--custom js-->
-  <script src="./js/js-scripts.js"></script>
+  <?php
 
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  include('layouts/body.php')
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  ?>
 </body>
 
 </html>
@@ -401,26 +449,82 @@ if (isset($_SESSION["ses_username"]) == "") {
 error_reporting(0);
 
 $IdEncode = base64_decode($_GET['id']);
+$IdUserDecode = base64_decode($_GET['id_user']);
+$IdPaketDecode = base64_decode($_GET['id_paket']);
 
 if (isset($_POST['hapus-seminar'])) {
 
   if (isset($_POST['hapus-seminar'])) {
+
+    $querycekdetailpresensi = "SELECT tb_detail_presensi.id FROM tb_item_presensi INNER JOIN tb_presensi ON tb_item_presensi.id_presensi=tb_presensi.id INNER JOIN tb_detail_presensi ON tb_detail_presensi.id_presensi=tb_presensi.id WHERE tb_item_presensi.id_paket = '$IdPaketDecode' AND tb_detail_presensi.id_user = '$IdUserDecode'";
+    $resultcekdetailpresensi = mysqli_query($koneksi, $querycekdetailpresensi);
+
+    while ($rowcekdetailpresensi = mysqli_fetch_array($resultcekdetailpresensi)) {
+      $IdDetailPresensi = $rowcekdetailpresensi['id'];
+      $querydel = "DELETE FROM tb_detail_presensi WHERE id = '$IdDetailPresensi' ";
+      $result = mysqli_query($koneksi, $querydel);
+    }
+
     $querydel = "DELETE FROM tb_pendaftaran WHERE id = '$IdEncode' ";
     $result = mysqli_query($koneksi, $querydel);
 
     echo "<script>
     Swal.fire({title: 'Data Berhasil Dihapus',text: '',icon: 'success',confirmButtonText: 'OK'
     }).then((result) => {if (result.value)
-        {window.location = 'seminar';}
+        {window.location = '';}
     })</script>";
   } else {
     echo "<script>
     Swal.fire({title: 'Data Gagal Dihapus',text: '',icon: 'error',confirmButtonText: 'OK'
     }).then((result) => {if (result.value)
-        {window.location = 'seminar';}
+        {window.location = '';}
     })</script>";
   }
 } else {
+}
+
+
+?>
+
+
+<?php
+
+if (isset($_POST['presensi'])) {
+
+  $IdUser = base64_decode($_GET['id_user']);
+  $IdPresensi = $_POST['id_presensi'];
+
+
+  $querycek = "SELECT * FROM tb_detail_presensi WHERE id_user = '$IdUser' AND id_presensi = '$IdPresensi' AND status = 'sudah'";
+  $resultcek = mysqli_query($koneksi, $querycek);
+
+  if (mysqli_num_rows($resultcek) > 0) {
+    echo "<script>
+        Swal.fire({title: 'Anda Telah Presensi',text: '',icon: 'error',confirmButtonText: 'OK'
+        }).then((result) => {if (result.value)
+            {window.location = '';}
+        })</script>";
+  } else {
+
+    $query    = "UPDATE tb_detail_presensi SET status = 'sudah'  where id_user = '$IdUser' AND id_presensi = '$IdPresensi'";
+    $result   = mysqli_query($koneksi, $query);
+
+
+    if ($result) {
+      echo "<script>
+                Swal.fire({title: 'Anda Berhasil Presensi',text: '',icon: 'success',confirmButtonText: 'OK'
+                }).then((result) => {if (result.value)
+                    {window.location = 'seminar';}
+                })</script>";
+    } else {
+
+      echo "<script>
+                    Swal.fire({title: 'Terjadi Kesalahan',text: '',icon: 'error',confirmButtonText: 'OK'
+                    }).then((result) => {if (result.value)
+                        {window.location = '';}
+                    })</script>";
+    }
+  }
 }
 
 

@@ -350,6 +350,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
+                                            <th>Domisili</th>
                                             <th>Jenis Peserta</th>
                                             <th>Actions</th>
                                         </tr>
@@ -359,7 +360,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                     <tbody>
                                         <?php
 
-                                        $query = ("SELECT tb_kampus.id, tb_kampus.nama, tb_jenis_peserta.nama as jenis_peserta FROM tb_kampus INNER JOIN tb_jenis_peserta ON tb_jenis_peserta.id=tb_kampus.id_jenis_peserta ORDER BY tb_kampus.nama asc");
+                                        $query = ("SELECT tb_kampus.id, tb_kampus.nama, tb_domisili.nama as domisili, tb_jenis_peserta.nama as jenis_peserta FROM tb_kampus INNER JOIN tb_jenis_peserta ON tb_jenis_peserta.id=tb_kampus.id_jenis_peserta INNER JOIN tb_domisili on tb_domisili.id=tb_kampus.id_domisili ORDER BY tb_kampus.nama asc");
                                         $result = mysqli_query($koneksi, $query);
 
 
@@ -370,6 +371,7 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                                             $KampusId = $row['id'];
                                             $KampusNama = $row['nama'];
+                                            $KampusDomisili = $row['domisili'];
                                             $KampusJenis = $row['jenis_peserta'];
 
 
@@ -378,6 +380,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                             <tr>
                                                 <td><?php echo $no++ ?></td>
                                                 <td><?php echo $KampusNama ?></td>
+                                                <td><?php echo $KampusDomisili ?></td>
                                                 <td><?php echo $KampusJenis ?></td>
 
 
@@ -411,6 +414,26 @@ if (isset($_SESSION["ses_username"]) == "") {
                                                                     <input type="text" class="form-control form-control-sm" id="recipient-name" name="edit-nama-kampus" value="<?php echo $KampusNama ?>" placeholder="Masukkan Nama" required>
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Domisili</label>
+                                                                    <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="edit-domisili">
+                                                                        <?php
+
+                                                                        $query1 = mysqli_query($koneksi, "SELECT * from tb_domisili where nama = '$KampusDomisili' limit 1") or die(mysqli_error($koneksi));
+                                                                        $row1 = mysqli_fetch_array($query1);
+                                                                        echo "<option value=$row1[id]> $row1[nama]</option>";
+
+
+                                                                        $query2 = mysqli_query($koneksi, "SELECT * from tb_domisili") or die(mysqli_error($koneksi));
+                                                                        while ($row2 = mysqli_fetch_array($query2)) {
+                                                                            echo "<option value=$row2[id]> $row2[nama]</option>";
+                                                                        }
+                                                                        ?>
+
+
+                                                                    </select>
+                                                                </div>
+                                                                
+                                                                 <div class="form-group">
                                                                     <label for="recipient-name" class="col-form-label">Jenis Peserta</label>
                                                                     <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="edit-jenis-peserta">
                                                                         <?php
@@ -429,6 +452,9 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                                                                     </select>
                                                                 </div>
+                                                                
+                                                                
+                                                                
 
 
                                                             </div>
@@ -629,6 +655,151 @@ For more information about DataTables, please visit the <a target="_blank" href=
                     </div>
 
                 </div>
+                
+                
+                
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tabel Data Domisili</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+
+                            <button type="button" class="btn btn-sm btn-pink shadow-sm mb-4" data-toggle="modal" data-target="#TambahDataDomisili" data-whatever="@mdo">Tambah Data</button>
+
+
+
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="TABLE_2" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <?php
+
+                                        $query = ("SELECT * from tb_domisili");
+                                        $result = mysqli_query($koneksi, $query);
+
+
+
+                                        $no = 1;
+
+                                        while ($row = mysqli_fetch_array($result)) {
+
+                                            $DomisiliId = $row['id'];
+                                            $DomisiliNama = $row['nama'];
+
+
+
+
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $no++ ?></td>
+                                                <td><?php echo $DomisiliNama ?></td>
+
+
+
+                                                <td>
+
+                                                    <button type="button" class="btn btn-sm btn-pink shadow-sm" data-toggle="modal" data-target="#Modal-Domisili-Edit<?= $DomisiliId ?>" data-whatever="@mdo">Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-pink shadow-sm" data-toggle="modal" data-target="#Modal-Domisili-Hapus<?= $DomisiliId ?>" data-whatever="@mdo">Hapus</button>
+
+                                                </td>
+                                            </tr>
+
+
+
+                                            <!-- Modal Edit  -->
+
+
+                                            <div class="modal fade" id="Modal-Domisili-Edit<?= $DomisiliId ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal Edit Data Domisili</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="datauser?id=<?= $DomisiliId ?>" method="post">
+                                                            <div class="modal-body">
+
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Nama</label>
+                                                                    <input type="text" class="form-control form-control-sm" id="recipient-name" name="edit-nama-domisili" value="<?php echo $DomisiliNama ?>" placeholder="Masukkan Nama" required>
+                                                                </div>
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" name="edit-data-domisili" class="btn btn-sm btn-pink shadow-sm">Simpan</button>
+                                                                <button type="button" class="btn btn-sm btn-pink shadow-sm" data-dismiss="modal">Tutup</button>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- End -->
+
+                                            <!-- Modal Hapus  -->
+
+
+                                            <div class="modal fade" id="Modal-Domisili-Hapus<?= $DomisiliId ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h6 class="modal-title" id="exampleModalLabel">Modal Hapus Data Domisili</h6>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h6>Anda Yakin Akan Menghapus Data <?= $DomisiliNama ?> ?</h6>
+                                                        </div>
+                                                        <form action="datauser?id=<?= $DomisiliId ?>" method="post">
+                                                            <div class="modal-footer">
+                                                                <button type="submit" name="delete-data-domisili" class="btn btn-sm btn-pink shadow-sm">Hapus</button>
+
+                                                                <button type="button" class="btn btn-sm btn-pink shadow-sm" data-dismiss="modal">Tutup</button>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- End -->
+                                        <?php
+                                        }
+                                        ?>
+
+
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
 
             </div>
@@ -739,6 +910,21 @@ For more information about DataTables, please visit the <a target="_blank" href=
                             <label for="recipient-name" class="col-form-label">Nama</label>
                             <input type="text" class="form-control form-control-sm" id="recipient-name" name="tambah-nama-kampus" placeholder="Masukkan Nama" required>
                         </div>
+                        
+                         <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Domisili</label>
+                            <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="tambah-domisili">
+                                <option value="">Pilih Domisili</option>
+                                <?php
+
+                                $queryjenispeserta = mysqli_query($koneksi, "SELECT * from tb_domisili") or die(mysqli_error($koneksi));
+                                while ($datapeserta = mysqli_fetch_array($queryjenispeserta)) {
+                                    echo "<option value=$datapeserta[id]> $datapeserta[nama]</option>";
+                                }
+                                ?>
+
+                            </select>
+                        </div>
 
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Jenis Peserta</label>
@@ -797,6 +983,38 @@ For more information about DataTables, please visit the <a target="_blank" href=
             </div>
         </div>
     </div>
+    
+    
+    <!-- Tambah Data Domisili  -->
+
+
+    <div class="modal fade" id="TambahDataDomisili" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal Tambah Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" method="post">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Nama</label>
+                            <input type="text" class="form-control form-control-sm" id="recipient-name" name="tambah-nama-domisili" placeholder="Masukkan Nama" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="tambah-data-domisili" class="btn btn-sm btn-pink shadow-sm">Simpan</button>
+                        <button type="button" class="btn btn-sm btn-pink shadow-sm" data-dismiss="modal">Tutup</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <!-- End -->
 
@@ -1065,8 +1283,9 @@ if (isset($_POST['tambah-data-kampus'])) {
 
     $TambahNamaKampus = $_POST['tambah-nama-kampus'];
     $TambahJenisPeserta = $_POST['tambah-jenis-peserta'];
+    $TambahDomisili = $_POST['tambah-domisili'];
 
-    $query    = "INSERT INTO tb_kampus SET nama = '$TambahNamaKampus', id_jenis_peserta = '$TambahJenisPeserta'";
+    $query    = "INSERT INTO tb_kampus SET nama = '$TambahNamaKampus', id_jenis_peserta = '$TambahJenisPeserta', id_domisili = '$TambahDomisili'";
     $result   = mysqli_query($koneksi, $query);
 
 
@@ -1096,10 +1315,11 @@ error_reporting(0);
 
 $EditNamaKampus = $_POST['edit-nama-kampus'];
 $EditJenisPeserta = $_POST['edit-jenis-peserta'];
+$EditDomisili = $_POST['edit-domisili'];
 
 if (isset($_POST['edit-data-kampus'])) {
 
-    $queryupdate = "UPDATE tb_kampus SET nama = '$EditNamaKampus', id_jenis_peserta = '$EditJenisPeserta' WHERE id = '$_GET[id]'";
+    $queryupdate = "UPDATE tb_kampus SET nama = '$EditNamaKampus', id_jenis_peserta = '$EditJenisPeserta', id_domisili = '$EditDomisili' WHERE id = '$_GET[id]'";
     $resultupdate = mysqli_query($koneksi, $queryupdate);
 
     if ($resultupdate) {
@@ -1249,3 +1469,99 @@ if (isset($_POST['delete-data-jenis-peserta'])) {
 ?>
 
 <!-- END QUERY JENIS PESERTA -->
+
+
+
+
+<!-- QUERY DOMISILI -->
+
+<?php
+error_reporting(0);
+if (isset($_POST['tambah-data-domisili'])) {
+
+    $TambahNamaDomisili = $_POST['tambah-nama-domisili'];
+
+    $query    = "INSERT INTO tb_domisili SET nama = '$TambahNamaDomisili'";
+    $result   = mysqli_query($koneksi, $query);
+
+
+    if ($result) {
+        echo "<script>
+                Swal.fire({title: 'Data Berhasil Disimpan',text: '',icon: 'success',confirmButtonText: 'OK'
+                }).then((result) => {if (result.value)
+                    {window.location = 'datauser';}
+                })</script>";
+    } else {
+
+        echo "<script>
+                    Swal.fire({title: 'Data Gagal Disimpan',text: '',icon: 'error',confirmButtonText: 'OK'
+                    }).then((result) => {if (result.value)
+                        {window.location = 'datauser';}
+                    })</script>";
+    }
+}
+
+
+
+?>
+
+<?php
+
+error_reporting(0);
+
+$EditNamaDomisili = $_POST['edit-nama-domisili'];
+
+
+if (isset($_POST['edit-data-domisili'])) {
+
+    $queryupdate = "UPDATE tb_domisili SET nama = '$EditNamaDomisili' WHERE id = '$_GET[id]'";
+    $resultupdate = mysqli_query($koneksi, $queryupdate);
+
+    if ($resultupdate) {
+        echo "<script>
+                        Swal.fire({title: 'Data Berhasil Diubah',text: '',icon: 'success',confirmButtonText: 'OK'
+                        }).then((result) => {if (result.value)
+                            {window.location = 'datauser';}
+                        })</script>";
+    } else {
+        echo "<script>
+                      Swal.fire({title: 'Data Gagal Disimpan',text: '',icon: 'error',confirmButtonText: 'OK'
+                      }).then((result) => {if (result.value)
+                          {window.location = 'datauser';}
+                      })</script>";
+    }
+} else {
+}
+
+
+
+?>
+
+<?php
+error_reporting(0);
+
+if (isset($_POST['delete-data-domisili'])) {
+
+    if (isset($_POST['delete-data-domisili'])) {
+        $querydel = "DELETE FROM tb_domisili WHERE id = '$_GET[id]' ";
+        $result = mysqli_query($koneksi, $querydel);
+
+        echo "<script>
+    Swal.fire({title: 'Data Berhasil Dihapus',text: '',icon: 'success',confirmButtonText: 'OK'
+    }).then((result) => {if (result.value)
+        {window.location = 'datauser';}
+    })</script>";
+    } else {
+        echo "<script>
+    Swal.fire({title: 'Data Gagal Dihapus',text: '',icon: 'error',confirmButtonText: 'OK'
+    }).then((result) => {if (result.value)
+        {window.location = 'datauser';}
+    })</script>";
+    }
+} else {
+}
+
+
+?>
+
+<!-- END QUERY DATA DOMISILI -->

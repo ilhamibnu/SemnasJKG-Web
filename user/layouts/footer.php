@@ -18,7 +18,7 @@
                                         <span class="fas fa-envelope mr-2"></span>
                                        himakepgi@gmail.com
                                     </li>
-                                    <!--<li class="d-flex align-items-center py-2"><span class="fas fa-phone-alt mr-2"></span> (123) 456-7890 - (123) 456-7890</li>-->
+                                    <li class="d-flex align-items-center py-2"><span class="fas fa-phone-alt mr-2"></span> +62 823-3095-1097 </li>
                                 </ul>
                             </div>
                         </div>

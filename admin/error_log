@@ -1,0 +1,50 @@
+[25-Mar-2023 07:57:51 UTC] PHP Warning:  Undefined array key "group_wa" in /home/semnasjk/public_html/admin/dataseminar.php on line 190
+[25-Mar-2023 07:57:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'tb_pendaftaran.status_sertifikat' in 'field list' in /home/semnasjk/public_html/admin/datapendaftaran.php:182
+Stack trace:
+#0 /home/semnasjk/public_html/admin/datapendaftaran.php(182): mysqli_query()
+#1 {main}
+  thrown in /home/semnasjk/public_html/admin/datapendaftaran.php on line 182
+[25-Mar-2023 07:57:53 UTC] PHP Warning:  Undefined array key "group_wa" in /home/semnasjk/public_html/admin/dataseminar.php on line 190
+[25-Mar-2023 07:57:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'tb_pendaftaran.status_sertifikat' in 'field list' in /home/semnasjk/public_html/admin/datapendaftaran.php:182
+Stack trace:
+#0 /home/semnasjk/public_html/admin/datapendaftaran.php(182): mysqli_query()
+#1 {main}
+  thrown in /home/semnasjk/public_html/admin/datapendaftaran.php on line 182
+[25-Mar-2023 07:57:56 UTC] PHP Warning:  Undefined array key "group_wa" in /home/semnasjk/public_html/admin/dataseminar.php on line 190
+[25-Mar-2023 07:58:00 UTC] PHP Warning:  Undefined array key "group_wa" in /home/semnasjk/public_html/admin/dataseminar.php on line 190
+[25-Mar-2023 07:58:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'tb_pendaftaran.status_sertifikat' in 'field list' in /home/semnasjk/public_html/admin/datapendaftaran.php:182
+Stack trace:
+#0 /home/semnasjk/public_html/admin/datapendaftaran.php(182): mysqli_query()
+#1 {main}
+  thrown in /home/semnasjk/public_html/admin/datapendaftaran.php on line 182
+[25-Mar-2023 07:58:02 UTC] PHP Warning:  Undefined array key "group_wa" in /home/semnasjk/public_html/admin/dataseminar.php on line 190
+[25-Mar-2023 07:58:16 UTC] PHP Warning:  Undefined array key "group_wa" in /home/semnasjk/public_html/admin/dataseminar.php on line 190
+[25-Mar-2023 07:58:38 UTC] PHP Warning:  Undefined array key "group_wa" in /home/semnasjk/public_html/admin/dataseminar.php on line 190
+[25-Mar-2023 07:58:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'tb_pendaftaran.status_sertifikat' in 'field list' in /home/semnasjk/public_html/admin/datapendaftaran.php:182
+Stack trace:
+#0 /home/semnasjk/public_html/admin/datapendaftaran.php(182): mysqli_query()
+#1 {main}
+  thrown in /home/semnasjk/public_html/admin/datapendaftaran.php on line 182
+[26-Mar-2023 07:02:11 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/login.php on line 103
+[28-Mar-2023 14:22:57 UTC] PHP Warning:  Undefined array key "domisili" in /home/semnasjk/public_html/admin/datauser.php on line 374
+[28-Mar-2023 14:22:57 UTC] PHP Warning:  Undefined array key "domisili" in /home/semnasjk/public_html/admin/datauser.php on line 374
+[28-Mar-2023 14:22:57 UTC] PHP Warning:  Undefined array key "domisili" in /home/semnasjk/public_html/admin/datauser.php on line 374
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Undefined variable $KampusDomilisi in /home/semnasjk/public_html/admin/datauser.php on line 421
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Undefined variable $KampusDomilisi in /home/semnasjk/public_html/admin/datauser.php on line 421
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Undefined variable $KampusDomilisi in /home/semnasjk/public_html/admin/datauser.php on line 421
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:27:27 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Undefined variable $KampusDomilisi in /home/semnasjk/public_html/admin/datauser.php on line 421
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Undefined variable $KampusDomilisi in /home/semnasjk/public_html/admin/datauser.php on line 421
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Undefined variable $KampusDomilisi in /home/semnasjk/public_html/admin/datauser.php on line 421
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[28-Mar-2023 14:28:59 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/admin/datauser.php on line 423
+[29-Mar-2023 12:37:52 UTC] PHP Warning:  Undefined variable $data_nama in /home/semnasjk/public_html/admin/datauser.php on line 121

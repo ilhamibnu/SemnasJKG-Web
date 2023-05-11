@@ -30,11 +30,23 @@ $fraud = $notif->fraud_status;
 
 if ($transaction == "settlement") {
 
+    $server = "localhost";
+    $username = "semnasjk_semjkg";
+    $password = "(I)4?Ns[,gI#";
+    $db = "semnasjk_db_semnas";
+    $koneksi = mysqli_connect($server, $username, $password, $db);
+
 
 
     mysqli_query($koneksi, "update tb_pendaftaran set status = 'lunas' where id = '$order_id'");
 } else {
 
+
+    $server = "localhost";
+    $username = "semnasjk_semjkg";
+    $password = "(I)4?Ns[,gI#";
+    $db = "semnasjk_db_semnas";
+    $koneksi = mysqli_connect($server, $username, $password, $db);
 
     mysqli_query($koneksi, "update tb_pendaftaran set status = 'belum_bayar' where id = '$order_id'");
 }

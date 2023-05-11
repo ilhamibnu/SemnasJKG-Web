@@ -18,56 +18,52 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Meta description -->
-  <meta name="description" content="Beasiswa Pendidikan Dosen Indonesia" />
-  <meta name="author" content="Direktorat Sumber Daya" />
-
-  <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-  <meta property="og:site_name" content="" />
-  <!-- website name -->
-  <meta property="og:site" content="" />
-  <!-- website link -->
-  <meta property="og:title" content="" />
-  <!-- title shown in the actual shared post -->
-  <meta property="og:description" content="" />
-  <!-- description shown in the actual shared post -->
-  <meta property="og:image" content="" />
-  <!-- image link, make sure it's jpg -->
-  <meta property="og:url" content="" />
-  <!-- where do you want your post to link to -->
-  <meta property="og:type" content="article" />
 
   <!--title-->
-  <title>Seminar Nasional Jurusan Jurusan Kesehatan | Politeknik Kesehatan Kemenkes Surabaya</title>
+  <title>Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya</title>
 
-  <!--favicon icon-->
-  <link rel="icon" href="./favicons/hikes.png" type="image/png" sizes="16x16" />
+  <link href='https://www.semnasjkg.cloud/' rel='canonical' />
+  <meta content='Seminar Nasional Jurusan Kesehatan Gigi Poltekkes Surabaya - Merupakan komitmen kampus dalam meningkatkan kualitas pendidikan tinggi di Indonesia melalui pemberian Seminar bagi Mahasiswa Perguruan Tinggi bereputasi di dunia menuju Indonesia Maju.' name='description' />
+  <meta name="keywords" content="semnas jkg, semnas jkg surabaya, semnas jkg poltekkes surabaya, seminar nasional, seminar nasional jkg, seminar nasional jurusan kesehatan gigi, seminar nasional jurusan kesehatan gigi surabaya, seminar nasional jurusan kesehatan gigi poltekkes surabaya, politeknik kesehatan surabaya, politeknik kesehatan kemenkes surabaya" />
+  <meta name="dcterms.subject" content="semnas jkg, semnas jkg surabaya, semnas jkg poltekkes surabaya, seminar nasional, seminar nasional jkg, seminar nasional jurusan kesehatan gigi, seminar nasional jurusan kesehatan gigi surabaya, seminar nasional jurusan kesehatan gigi poltekkes surabaya, politeknik kesehatan surabaya, politeknik kesehatan kemenkes surabaya" />
+  <meta name="author" content="Semnas JKG Surabaya" />
+  <meta content='id' property='og:locale' />
+  <meta content='website' property='og:type' />
+  <meta content='Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya' property='og:title' />
+  <meta content='https://www.semnasjkg.cloud/' property='og:url' />
+  <meta content='Seminar Nasional Jurusan Kesehatan Gigi Poltekkes Surabaya - Merupakan komitmen kampus dalam meningkatkan kualitas pendidikan tinggi di Indonesia melalui pemberian Seminar bagi Mahasiswa Perguruan Tinggi bereputasi di dunia menuju Indonesia Maju.' property='og:description' />
+  <meta content='Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya' property='og:site_name' />
+  <meta content='summary_large_image' name='twitter:card' />
+  <meta content='Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya' name='twitter:title' />
+  <meta content='https://www.semnasjkg.cloud/' name='twitter:domain' />
+  <meta content='Seminar Nasional Jurusan Kesehatan Gigi Poltekkes Surabaya - Merupakan komitmen kampus dalam meningkatkan kualitas pendidikan tinggi di Indonesia melalui pemberian Seminar bagi Mahasiswa Perguruan Tinggi bereputasi di dunia menuju Indonesia Maju.' name='twitter:description' />
+  <link rel="alternate" type="application/atom+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="https://www.semnasjkg.cloud/ />
+<link rel=" alternate" type="application/rss+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="https://www.semnasjkg.cloud/" />
+  <link rel="service.post" type="application/atom+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="https://www.semnasjkg.cloud/" />
+  <script type='application/ld+json'>
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya",
+      "url": "https://www.semnasjkg.cloud/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.semnasjkg.cloud/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <meta name="msvalidate.01" content="803C782A6958FDC9E7E87A2713A8F9E4" />
 
-  <!--google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans:400,600&amp;display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <?php
 
-  <!--Bootstrap css-->
-  <link rel="stylesheet" href="./css/css-bootstrap.min.css" />
-  <!--Magnific popup css-->
-  <link rel="stylesheet" href="./css/css-magnific-popup.css" />
-  <!--Themify icon css-->
-  <link rel="stylesheet" href="./css/css-themify-icons.css" />
-  <!--Fontawesome icon css-->
-  <link rel="stylesheet" href="./css/css-all.min.css" />
-  <!--animated css-->
-  <link rel="stylesheet" href="./css/css-animate.min.css" />
-  <!--ytplayer css-->
-  <link rel="stylesheet" href="./css/css-jquery.mb.YTPlayer.min.css" />
-  <!--Owl carousel css-->
-  <link rel="stylesheet" href="./css/css-owl.carousel.min.css" />
-  <link rel="stylesheet" href="./css/css-owl.theme.default.min.css" />
-  <!--custom css-->
-  <link rel="stylesheet" href="./css/css-style.css" />
-  <!--responsive css-->
-  <link rel="stylesheet" href="./css/css-responsive.css" />
+  include('layouts/head.php')
+
+  ?>
+
+
 </head>
 
 <body>
@@ -202,7 +198,7 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
               echo "
 
               
-              <div class='col-md-4 col-lg-4 justify-content-center'>
+              <div class='col-md-4 col-lg-4 mb-4'>
               <div class='single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded'>
                 <div class='circle-icon'>
                   <span class='fa fa-university text-white'></span>
@@ -211,7 +207,7 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
                 <p>
                   $SeminarDeskripsi
                 </p>
-                <a href='#' class='btn secondary-solid-btn mr-3' data-bs-toggle='modal' data-bs-target='#BelumLogin'>Daftar Sekarang</a>
+                <a href='' class='btn secondary-solid-btn mr-3' data-bs-toggle='modal' data-bs-target='#BelumLogin'>Daftar Sekarang</a>
               </div>
             </div>
 
@@ -241,7 +237,7 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
                   <p>
                     <?php echo $SeminarDeskripsi ?>
                   </p>
-                  <a href='#' class='btn secondary-solid-btn mr-3' data-bs-toggle='modal' data-bs-target='#DaftarSeminar<?= $SeminarId ?>'>Daftar Sekarang</a>
+                  <a href='' class='btn secondary-solid-btn mr-3' data-bs-toggle='modal' data-bs-target='#DaftarSeminar<?= $SeminarId ?>'>Daftar Sekarang</a>
                 </div>
               </div>
 
@@ -261,7 +257,7 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
                           <label for="formFileSm" class="form-label">Pilih Paket</label>
                           <select class='form-select form-control form-control-sm' id='exampleFormControlSelect1' name='id_paket' required>
                             <?php
-                            $query = mysqli_query($koneksi, "SELECT tb_paket.id, tb_paket.nama, format(tb_harga.harga,0) as harga FROM tb_paket INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_jenis_peserta ON tb_jenis_peserta.id=tb_paket.id_jenis_peserta INNER JOIN tb_kampus ON tb_jenis_peserta.id=tb_kampus.id_jenis_peserta INNER JOIN tb_user ON tb_kampus.id=tb_user.id_kampus WHERE tb_user.id_kampus = '$data_id_kampus' AND tb_user.id = '$data_id'") or die(mysqli_error($koneksi));
+                            $query = mysqli_query($koneksi, "SELECT tb_paket.id, tb_paket.nama, tb_harga.harga FROM tb_seminar INNER JOIN tb_item_paket ON tb_item_paket.id_seminar=tb_seminar.id INNER JOIN tb_paket ON tb_paket.id=tb_item_paket.id_paket INNER JOIN tb_jenis_peserta ON tb_jenis_peserta.id=tb_paket.id_jenis_peserta INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_kampus ON tb_kampus.id_jenis_peserta=tb_jenis_peserta.id INNER JOIN tb_user ON tb_user.id_kampus=tb_kampus.id WHERE tb_seminar.id = '$SeminarId' AND tb_user.id = '$data_id' AND tb_kampus.id = '$data_id_kampus'") or die(mysqli_error($koneksi));
                             while ($row = mysqli_fetch_array($query)) {
                               echo "<option value=$row[id]> $row[nama] - Rp. $row[harga]</option>";
                             }
@@ -321,42 +317,94 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
 
       </div>
   </div>
+
   </section>
 
-  <div class="client-section ptb-100" style="
-          background: url('https://beasiswadosen.kemdikbud.go.id/v2/assets/frontend/img/client-bg.jpg')
-            no-repeat center center / cover;
-        ">
+  <section class="wrapper bg-light">
     <div class="container">
-      <!--clients logo start-->
-      <div class="row">&nbsp;</div>
-      <div class="row align-items-center justify-content-center mb-4">
-        <div class="col-md-10 col-lg-9">
-          <div class="owl-carousel owl-theme clients-carousel dot-indicator client-logo-wrap">
-            <div class="item single-client">
-              <img src="images/img-logo-kemdikbud-footer.png" alt="client logo" class="client-img" />
-            </div>
-            <div class="item single-client">
-              <img src="images/img-logo-kampus-merdeka.png" alt="client logo" class="client-img" />
-            </div>
-            <div class="item single-client">
-              <img src="images/img-logo-lpdp.png" alt="client logo" class="client-img" />
-            </div>
-            <div class="item single-client">
-              <img src="images/img-logo-puslapdik.png" alt="client logo" class="client-img" />
-            </div>
-            <div class="item single-client">
-              <img src="images/img-logo-dikti-sigap.png" alt="client logo" class="client-img" />
-            </div>
-            <div class="item single-client">
-              <img src="images/img-logo-vokasi.png" alt="client logo" class="client-img" />
-            </div>
-          </div>
+      <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+        <div class="col-lg-7 order-lg-2">
+          <figure>
+            <img class="img-fluid" src="images/fasilitas.png" alt="" />
+          </figure>
         </div>
+        <!--/column -->
+        <div class="col-lg-5">
+          <h2 class="fs-16 text-uppercase text mb-3"> Apa saja fasilitas yang akan kalian dapatkan?</h2>
+          <span class="animate-border"></span>
+          <p class="lead">&nbsp;</p>
+          <!-- <h3 class="display-4 mb-5">
+            Apa saja fasilitas yang akan kalian dapatkan?
+          </h3> -->
+          <p class="mb-6"></p>
+          <div class="row gy-3">
+            <div class="col-xl-6 ">
+              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                <li>
+                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> Materi Literasi Digital</span>
+                </li>
+                <li class="mt-3">
+                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> E-sertifikat</span>
+                </li>
+              </ul>
+            </div>
+
+            <!--/column -->
+            <div class="col-xl-6">
+              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                <li>
+                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> Seminar Kit</span>
+                </li>
+                <li class="mt-3">
+                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> Voucher E-Money</span>
+                </li>
+              </ul>
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
+        <!--/column -->
       </div>
-      <!--clients logo end-->
+      <!--/.row -->
     </div>
-  </div>
+    <!-- /.container -->
+  </section>
+
+  <!--<div class="client-section ptb-100" style="-->
+  <!--        background: url('https://beasiswadosen.kemdikbud.go.id/v2/assets/frontend/img/client-bg.jpg')-->
+  <!--          no-repeat center center / cover;-->
+  <!--      ">-->
+  <!--  <div class="container">-->
+
+  <!--    <div class="row">&nbsp;</div>-->
+  <!--    <div class="row align-items-center justify-content-center mb-4">-->
+  <!--      <div class="col-md-10 col-lg-9">-->
+  <!--        <div class="owl-carousel owl-theme clients-carousel dot-indicator client-logo-wrap">-->
+  <!--          <div class="item single-client">-->
+  <!--            <img src="images/img-logo-kemdikbud-footer.png" alt="client logo" class="client-img" />-->
+  <!--          </div>-->
+  <!--          <div class="item single-client">-->
+  <!--            <img src="images/img-logo-kampus-merdeka.png" alt="client logo" class="client-img" />-->
+  <!--          </div>-->
+  <!--          <div class="item single-client">-->
+  <!--            <img src="images/img-logo-lpdp.png" alt="client logo" class="client-img" />-->
+  <!--          </div>-->
+  <!--          <div class="item single-client">-->
+  <!--            <img src="images/img-logo-puslapdik.png" alt="client logo" class="client-img" />-->
+  <!--          </div>-->
+  <!--          <div class="item single-client">-->
+  <!--            <img src="images/img-logo-dikti-sigap.png" alt="client logo" class="client-img" />-->
+  <!--          </div>-->
+  <!--          <div class="item single-client">-->
+  <!--            <img src="images/img-logo-vokasi.png" alt="client logo" class="client-img" />-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--  </div>-->
+  <!--</div>-->
   <!--client section end-->
   </div>
   <!--body content wrap end-->
@@ -421,35 +469,13 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
   </button>
   <!--bottom to top button end-->
 
-  <!--jQuery-->
-  <script src="./js/js-jquery-3.5.0.min.js"></script>
-  <!--Popper js-->
-  <script src="./js/js-popper.min.js"></script>
-  <!--Bootstrap js-->
-  <script src="./js/js-bootstrap.min.js"></script>
-  <!--Magnific popup js-->
-  <script src="./js/js-jquery.magnific-popup.min.js"></script>
-  <!--jquery easing js-->
-  <script src="./js/js-jquery.easing.min.js"></script>
-  <!--jquery ytplayer js-->
-  <script src="./js/js-jquery.mb.YTPlayer.min.js"></script>
-  <!--Isotope filter js-->
-  <script src="./js/js-mixitup.min.js"></script>
-  <!--wow js-->
-  <script src="./js/js-wow.min.js"></script>
-  <!--owl carousel js-->
-  <script src="./js/js-owl.carousel.min.js"></script>
-  <!--countdown js-->
-  <script src="./js/js-jquery.countdown.min.js"></script>
-  <!--jquery easypiechart-->
-  <script src="./js/js-jquery.easy-pie-chart.js"></script>
-  <!--custom js-->
-  <script src="./js/js-scripts.js"></script>
+  <?php
 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  include('layouts/body.php')
+
+  ?>
+
+
 
 </body>
 
@@ -464,6 +490,7 @@ if (isset($_POST['daftarseminar'])) {
   $IdPaket = $_POST['id_paket'];
 
 
+
   $querycek = "SELECT * FROM tb_pendaftaran WHERE id_user = '$IdUser' AND id_seminar = '$IdSeminar'";
   $resultcek = mysqli_query($koneksi, $querycek);
 
@@ -471,11 +498,20 @@ if (isset($_POST['daftarseminar'])) {
     echo "<script>
         Swal.fire({title: 'Anda Telah Terdaftar Pada Seminar',text: '',icon: 'error',confirmButtonText: 'OK'
         }).then((result) => {if (result.value)
-            {window.location = 'index';}
+            {window.location = '';}
         })</script>";
   } else {
 
-    $query    = "INSERT INTO tb_pendaftaran SET id_user = '$IdUser', id_seminar = '$IdSeminar', id_paket = '$IdPaket', status = 'belum_bayar', sertifikat = 'aktif'";
+    $queyselectpresensi = "SELECT tb_presensi.id FROM tb_item_presensi INNER JOIN tb_presensi ON tb_item_presensi.id_presensi=tb_presensi.id WHERE tb_item_presensi.id_paket = '$IdPaket'";
+    $resultselectpresensi = mysqli_query($koneksi, $queyselectpresensi);
+
+    while ($row = mysqli_fetch_array($resultselectpresensi)) {
+      $id_presensi = $row['id'];
+      $queryinsertpresensi = "INSERT INTO tb_detail_presensi SET id_presensi = '$id_presensi', id_user = '$IdUser' , status = 'belum'";
+      $resultinsertpresensi = mysqli_query($koneksi, $queryinsertpresensi);
+    }
+
+    $query    = "INSERT INTO tb_pendaftaran SET id_user = '$IdUser', id_seminar = '$IdSeminar', id_paket = '$IdPaket' ,status = 'belum_bayar', status_sertifikat = 'aktif'";
     $result   = mysqli_query($koneksi, $query);
 
 
@@ -485,13 +521,12 @@ if (isset($_POST['daftarseminar'])) {
                 }).then((result) => {if (result.value)
                     {window.location = 'seminar';}
                 })</script>";
-        
     } else {
 
       echo "<script>
                     Swal.fire({title: 'Terjadi Kesalahan',text: '',icon: 'error',confirmButtonText: 'OK'
                     }).then((result) => {if (result.value)
-                        {window.location = 'seminar';}
+                        {window.location = '';}
                     })</script>";
     }
   }

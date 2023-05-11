@@ -165,6 +165,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
+                                            <th>Group Wa</th>
                                             <th>Deskripsi</th>
                                             <th>Actions</th>
                                         </tr>
@@ -186,6 +187,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                             $SeminarId = $row['id'];
                                             $SeminarNama = $row['nama'];
                                             $SeminarDeskripsi = $row['deskripsi'];
+                                            $SeminarGroupWa = $row['group_wa'];
 
 
 
@@ -193,6 +195,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                             <tr>
                                                 <td><?php echo $no++ ?></td>
                                                 <td><?php echo $SeminarNama ?></td>
+                                                <td><button type="button" class="btn btn-sm btn-pink shadow-sm" data-toggle="modal" data-target="#Modal-Detail-WA<?= $SeminarId ?>" data-whatever="@mdo">Detail</button></td>
                                                 <td><button type="button" class="btn btn-sm btn-pink shadow-sm" data-toggle="modal" data-target="#Modal-Detail-Seminar<?= $SeminarId ?>" data-whatever="@mdo">Detail</button></td>
 
 
@@ -211,7 +214,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Modal Edit Data</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal Deskripsi</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -221,6 +224,38 @@ if (isset($_SESSION["ses_username"]) == "") {
                                                                 <div class="form-group">
                                                                     <label for="recipient-name" class="col-form-label">Deskripsi</label>
                                                                     <textarea type="text" class="form-control" name="edit-deskripsi" value="" id="" rows="5"><?php echo $SeminarDeskripsi ?></textarea>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+
+                                                                <button type="button" class="btn btn-sm btn-pink shadow-sm" data-dismiss="modal">Tutup</button>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- End -->
+
+                                            <!-- Modal Detal WA  -->
+
+
+                                            <div class="modal fade" id="Modal-Detail-WA<?= $SeminarId ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal Whatsapp</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="dataseminar?id=<?= $SeminarId ?>" method="post">
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Deskripsi</label>
+                                                                    <textarea type="text" class="form-control" name="edit-deskripsi" value="" id="" rows="5"><?php echo $SeminarGroupWa ?></textarea>
 
                                                                 </div>
                                                             </div>
@@ -263,6 +298,11 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                                                                 </div>
 
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Link Group</label>
+                                                                    <textarea type="text" class="form-control" name="edit-wa" rows="5" placeholder="Masukkan Deskripsi"><?php echo $SeminarGroupWa ?></textarea>
+
+                                                                </div>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="submit" name="edit-data-seminar" class="btn btn-sm btn-pink shadow-sm">Simpan</button>
@@ -929,6 +969,11 @@ For more information about DataTables, please visit the <a target="_blank" href=
                             <textarea type="text" class="form-control" id="recipient-name" name="tambah-deskripsi" rows="5" placeholder="Masukkan Deskripsi" required></textarea>
                         </div>
 
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Link Group WA</label>
+                            <textarea type="text" class="form-control" id="recipient-name" name="tambah-wa" rows="5" placeholder="Masukkan Deskripsi" required></textarea>
+                        </div>
+
 
 
 
@@ -1181,8 +1226,9 @@ if (isset($_POST['tambah-data-seminar'])) {
 
     $TambahNamaSeminar = $_POST['tambah-nama'];
     $TambahDeskripsiSeminar = $_POST['tambah-deskripsi'];
+    $TambahWASeminar = $_POST['tambah-wa'];
 
-    $query    = "INSERT INTO tb_seminar SET nama = '$TambahNamaSeminar', deskripsi = '$TambahDeskripsiSeminar'";
+    $query    = "INSERT INTO tb_seminar SET nama = '$TambahNamaSeminar', deskripsi = '$TambahDeskripsiSeminar', group_wa = '$TambahWASeminar'";
 
 
     $result   = mysqli_query($koneksi, $query);
@@ -1213,12 +1259,13 @@ if (isset($_POST['tambah-data-seminar'])) {
 error_reporting(0);
 $EditNamaSeminar = $_POST['edit-nama'];
 $EditDeskripsiSeminar = $_POST['edit-deskripsi'];
+$EditWASeminar = $_POST['edit-wa'];
 
 
 if (isset($_POST['edit-data-seminar'])) {
 
 
-    $query = "UPDATE tb_seminar SET nama = '$EditNamaSeminar', deskripsi = '$EditDeskripsiSeminar' WHERE id = '$_GET[id]'";
+    $query = "UPDATE tb_seminar SET nama = '$EditNamaSeminar', deskripsi = '$EditDeskripsiSeminar', group_wa = '$EditWASeminar' WHERE id = '$_GET[id]'";
     $result = mysqli_query($koneksi, $query);
 
     if ($query) {

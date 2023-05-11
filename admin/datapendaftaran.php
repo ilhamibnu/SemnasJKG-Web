@@ -36,6 +36,9 @@ if (isset($_SESSION["ses_username"]) == "") {
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+
+    
+
 </head>
 
 <body id="page-top">
@@ -158,7 +161,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="TABLE1" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -168,7 +171,8 @@ if (isset($_SESSION["ses_username"]) == "") {
                                             <th>Paket</th>
                                             <th>Harga</th>
                                             <th>Status</th>
-                                            <th>Tanggal</th>
+                                            <th>Sertifikat</th>
+
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -177,7 +181,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                     <tbody>
                                         <?php
 
-                                        $query = ("SELECT tb_pendaftaran.id, tb_user.id as id_peserta, tb_user.nama as nama_peserta, tb_jenis_peserta.id as id_jenis_peserta, tb_kampus.nama as nama_kampus, tb_seminar.nama as nama_seminar, tb_paket.id as id_paket, tb_paket.nama as nama_paket, tb_harga.harga, tb_pendaftaran.status, tb_pendaftaran.tanggal FROM tb_pendaftaran INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_kampus ON tb_kampus.id=tb_user.id_kampus INNER JOIN tb_jenis_peserta ON tb_paket.id_jenis_peserta=tb_jenis_peserta.id");
+                                        $query = ("SELECT tb_pendaftaran.id, tb_user.id as id_peserta, tb_user.nama as nama_peserta, tb_jenis_peserta.id as id_jenis_peserta, tb_kampus.nama as nama_kampus, tb_seminar.nama as nama_seminar, tb_paket.id as id_paket, tb_paket.nama as nama_paket, tb_harga.harga, tb_pendaftaran.status, tb_pendaftaran.status_sertifikat FROM tb_pendaftaran INNER JOIN tb_user ON tb_user.id=tb_pendaftaran.id_user INNER JOIN tb_seminar ON tb_seminar.id=tb_pendaftaran.id_seminar INNER JOIN tb_paket ON tb_paket.id=tb_pendaftaran.id_paket INNER JOIN tb_harga ON tb_harga.id=tb_paket.id_harga INNER JOIN tb_kampus ON tb_kampus.id=tb_user.id_kampus INNER JOIN tb_jenis_peserta ON tb_paket.id_jenis_peserta=tb_jenis_peserta.id");
                                         $result = mysqli_query($koneksi, $query);
 
 
@@ -193,7 +197,8 @@ if (isset($_SESSION["ses_username"]) == "") {
                                             $PendaftaranPaket = $row['nama_paket'];
                                             $PendaftaranHarga = $row['harga'];
                                             $PendaftaranStatus = $row['status'];
-                                            $PendaftaranTanggal = $row['tanggal'];
+                                            $PendaftaranSertifikat = $row['status_sertifikat'];
+
 
                                             $IdPeserta = $row['id_peserta'];
                                             $IdJenisPeserta = $row['id_jenis_peserta'];
@@ -217,9 +222,20 @@ if (isset($_SESSION["ses_username"]) == "") {
                                                     }
 
                                                     ?></td>
-                                                <td><?php echo $PendaftaranTanggal ?></td>
+
+                                                <td><?php
+
+                                                    if ($PendaftaranSertifikat == "aktif") {
+                                                        echo "Aktif";
+                                                    } else {
+                                                        echo "Tdak Aktif";
+                                                    }
+
+
+                                                    ?></td>
 
                                                 <td>
+
 
                                                     <button type="button" class="btn btn-sm btn-pink shadow-sm" data-toggle="modal" data-target="#Modal-Edit<?= $PendaftaranId ?>" data-whatever="@mdo">Edit</button>
                                                     <button type="button" class="btn btn-sm btn-pink shadow-sm" data-toggle="modal" data-target="#Modal-Hapus<?= $PendaftaranId ?>" data-whatever="@mdo">Hapus</button>
@@ -306,7 +322,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <label for="recipient-name" class="col-form-label">Paket</label>
+                                                                    <label for="recipient-name" class="col-form-label">Status</label>
                                                                     <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="edit-nama-status">
 
                                                                         <?php
@@ -318,6 +334,30 @@ if (isset($_SESSION["ses_username"]) == "") {
                                                                         } else {
                                                                             echo "<option selected value='lunas'>Lunas</option>";
                                                                             echo "<option value='belum_bayar'>Belum Lunas</option>";
+                                                                        }
+
+                                                                        ?>
+
+
+
+
+                                                                    </select>
+                                                                </div>
+
+
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Status Sertifikat</label>
+                                                                    <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="edit-nama-sertifikat">
+
+                                                                        <?php
+
+                                                                        if ($PendaftaranSertifikat == 'aktif') {
+
+                                                                            echo "<option selected value='aktif'>Aktif</option>";
+                                                                            echo "<option value='tidak_aktif'>Tidak Aktif</option>";
+                                                                        } else {
+                                                                            echo "<option selected value='tidak_aktif'>Tidak Aktif</option>";
+                                                                            echo "<option value='aktif'>Aktif</option>";
                                                                         }
 
                                                                         ?>
@@ -485,6 +525,18 @@ if (isset($_SESSION["ses_username"]) == "") {
                             </select>
                         </div>
 
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Status Sertifikat</label>
+                            <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="tambah-nama-sertifikat">
+                                <option value="">Pilih Status Sertifikat</option>
+                                <option value="aktif">Aktif</option>
+                                <option value="tidak_aktif">Tidak Aktif</option>
+
+
+                            </select>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit" name="tambah-data" class="btn btn-sm btn-pink shadow-sm">Simpan</button>
@@ -536,6 +588,20 @@ if (isset($_SESSION["ses_username"]) == "") {
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script type="text/javascript" defer="defer">
+        $(document).ready(function() {
+            $("table[id^='TABLE']").DataTable({
+                "scrollCollapse": true,
+                "searching": true,
+                "paging": true,
+              
+            });
+        });
+    </script>
+    
+
+    
+
 
 </body>
 
@@ -551,6 +617,7 @@ if (isset($_POST['tambah-data'])) {
     $TambahNamaSeminar = $_POST['tambah-nama-seminar'];
     $TambahNamaPaket = $_POST['tambah-nama-paket'];
     $TambahNamaStatus = $_POST['tambah-nama-status'];
+    $TambahNamaSertifikat = $_POST['tambah-nama-sertifikat'];
 
 
     $querycek = "SELECT * FROM tb_pendaftaran WHERE id_user = '$TambahNamaPeserta' AND id_seminar = '$TambahNamaSeminar'";
@@ -564,7 +631,7 @@ if (isset($_POST['tambah-data'])) {
         })</script>";
     } else {
 
-        $query    = "INSERT INTO tb_pendaftaran SET id_user = '$TambahNamaPeserta', id_seminar = '$TambahNamaSeminar', id_paket = '$TambahNamaPaket', status = '$TambahNamaStatus'";
+        $query    = "INSERT INTO tb_pendaftaran SET id_user = '$TambahNamaPeserta', id_seminar = '$TambahNamaSeminar', id_paket = '$TambahNamaPaket', status = '$TambahNamaStatus', status_sertifikat = '$TambahNamaSertifikat'";
         $result   = mysqli_query($koneksi, $query);
 
 
@@ -597,6 +664,7 @@ $EditNamaPeserta = $_POST['edit-nama-peserta'];
 $EditNamaSeminar = $_POST['edit-nama-seminar'];
 $EditNamaPaket = $_POST['edit-nama-paket'];
 $EditNamaStatus = $_POST['edit-nama-status'];
+$EditNamaSertifikat = $_POST['edit-nama-sertifikat'];
 
 if (isset($_POST['edit-data'])) {
 
@@ -606,7 +674,7 @@ if (isset($_POST['edit-data'])) {
 
     if ($_GET['id'] == $resultcekuser['id']) {
 
-        $querystatus = "UPDATE tb_pendaftaran SET status = '$EditNamaStatus', id_paket = '$EditNamaPaket' WHERE id = '$_GET[id]'";
+        $querystatus = "UPDATE tb_pendaftaran SET status = '$EditNamaStatus', id_paket = '$EditNamaPaket', status = '$EditNamaStatus', status_sertifikat = '$EditNamaSertifikat' WHERE id = '$_GET[id]'";
         $resultstatus = mysqli_query($koneksi, $querystatus);
 
         if ($resultstatus) {
@@ -636,7 +704,7 @@ if (isset($_POST['edit-data'])) {
                     {window.location = 'datapendaftaran';}
                 })</script>";
         } else {
-            $query = "UPDATE tb_pendaftaran SET id_user = '$EditNamaPeserta', id_seminar = '$EditNamaSeminar', id_paket = '$EditNamaPaket', status = '$EditNamaStatus' WHERE id = '$_GET[id]'";
+            $query = "UPDATE tb_pendaftaran SET id_user = '$EditNamaPeserta', id_seminar = '$EditNamaSeminar', id_paket = '$EditNamaPaket', status = '$EditNamaStatus', status_sertifikat = '$EditNamaSertifikat' WHERE id = '$_GET[id]'";
             $result = mysqli_query($koneksi, $query);
 
             if ($result) {

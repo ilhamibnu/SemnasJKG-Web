@@ -63,7 +63,7 @@ session_start();
                                                         <?php
 
                                                         echo "<option> Pilih Domisili</option>";
-                                                        $query = mysqli_query($koneksi, "SELECT * from tb_domisili") or die(mysqli_error($koneksi));
+                                                        $query = mysqli_query($koneksi, "SELECT * from tb_domisili order by nama asc") or die(mysqli_error($koneksi));
                                                         while ($row = mysqli_fetch_array($query)) {
                                                             echo "<option value=$row[id]> $row[nama]</option>";
                                                         }

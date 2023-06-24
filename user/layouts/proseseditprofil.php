@@ -4,7 +4,7 @@ error_reporting(0);
 $DeIdUser = base64_decode($_GET['id']);
 
 $EditNamaUser =  mysqli_real_escape_string($koneksi, $_POST['edit-nama']);
-$EditKampusUser =  $_POST['edit-kampus'];
+// $EditKampusUser =  $_POST['edit-kampus'];
 $EditEmailUser =  mysqli_real_escape_string($koneksi, $_POST['edit-email']);
 $EditPasswordUser =  mysqli_real_escape_string($koneksi, $_POST['edit-password']);
 $EditRepasswordUser =  mysqli_real_escape_string($koneksi, $_POST['edit-repassword']);
@@ -19,7 +19,7 @@ if (isset($_POST['edit-profil'])) {
 
         if ($EditPasswordUser == $EditRepasswordUser) {
 
-            $query = "UPDATE tb_user SET nama = '$EditNamaUser' , id_kampus = '$EditKampusUser',  password = '$EditPasswordUser' WHERE id = '$DeIdUser'";
+            $query = "UPDATE tb_user SET nama = '$EditNamaUser',  password = '$EditPasswordUser' WHERE id = '$DeIdUser'";
             $result = mysqli_query($koneksi, $query);
 
             if ($query) {
@@ -57,7 +57,7 @@ if (isset($_POST['edit-profil'])) {
 
             if ($EditPasswordUser == $EditRepasswordUser) {
 
-                $query = "UPDATE tb_user SET nama = '$EditNamaUser' , id_kampus = '$EditKampusUser', email = '$EditEmailUser', password = '$EditPasswordUser' WHERE id = '$DeIdUser'";
+                $query = "UPDATE tb_user SET nama = '$EditNamaUser', email = '$EditEmailUser', password = '$EditPasswordUser' WHERE id = '$DeIdUser'";
                 $result = mysqli_query($koneksi, $query);
 
                 if ($query) {

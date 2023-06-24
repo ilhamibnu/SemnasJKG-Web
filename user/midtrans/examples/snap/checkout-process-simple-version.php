@@ -127,7 +127,7 @@ function printExampleWarningMessage()
 
                         <div class="single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded align-items-center">
                             <h4>Informasi</h4>
-                            <p>Apabila kode VA atau QRCODE Qris telah digenerate oleh system silahkan simpan VA atau QRCODE tersebut, apabila anda lupa menyimpan, dan terjadi error saat akan melakukan pembayaran, silahkan hapus seminar anda terlebih dahulu dan daftar kembali, lalu lakukan pembayaran seperti sebelumnya, kode VA dan QRCODE akan tergenerate kembali, sekian terimakasih</p>
+                            <p class="font-weight-bold" style="font-size: 16px;">Setelah memilih metode pembayaran diharapkan jangan lupa untuk menyimpan kode virtual account bank atau QRcode qris yang telah tergenerate otomatis, apabila anda mengguna motode pembayaran qris, lalu anda lupa untuk tidak menyimpan QRcode, silahkan hapus seminar anda pada menu seminar kemudian daftar kembali, sedangkan bagi anda yang menggunakan bank, silahkan cek email yang terdaftar untuk melihat code virtual account. Sekian terimakasih</p>
                             <button id="pay-button" class='btn secondary-solid-btn mr-3'>Pilih Metode Pembayaran</button>
 
                         </div>

@@ -17,7 +17,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="formFileSm" class="form-label">Kampus</label>
-                        <select class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="edit-kampus">
+                        <select disabled class="form-select form-control form-control-sm" id="exampleFormControlSelect1" name="edit-kampus">
                             <?php
 
                             $query1 = mysqli_query($koneksi, "SELECT * from tb_kampus where id = '$data_id_kampus'") or die(mysqli_error($koneksi));

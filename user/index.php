@@ -13,7 +13,7 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="utf-8" />
@@ -24,33 +24,33 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
   <!--title-->
   <title>Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya</title>
 
-  <link href='https://www.semnasjkg.cloud/' rel='canonical' />
-  <meta content='Seminar Nasional Jurusan Kesehatan Gigi Poltekkes Surabaya - Merupakan komitmen kampus dalam meningkatkan kualitas pendidikan tinggi di Indonesia melalui pemberian Seminar bagi Mahasiswa Perguruan Tinggi bereputasi di dunia menuju Indonesia Maju.' name='description' />
-  <meta name="keywords" content="semnas jkg, semnas jkg surabaya, semnas jkg poltekkes surabaya, seminar nasional, seminar nasional jkg, seminar nasional jurusan kesehatan gigi, seminar nasional jurusan kesehatan gigi surabaya, seminar nasional jurusan kesehatan gigi poltekkes surabaya, politeknik kesehatan surabaya, politeknik kesehatan kemenkes surabaya" />
+  <link href='http://www.semnasjkgsby.com/' rel='canonical' />
+  <meta content='Merupakan komitmen kampus dalam meningkatkan kualitas pendidikan tinggi di Indonesia melalui pemberian Seminar bagi Mahasiswa Perguruan Tinggi bereputasi di dunia menuju Indonesia Maju.' name='description' />
+  <meta name="keywords" content="semnas jkg, semnas jkg surabaya, semnas jkg poltekkes surabaya, seminar nasional, seminar nasional jkg, seminar nasional jurusan kesehatan gigi, seminar nasional jurusan kesehatan gigi surabaya, seminar nasional jurusan kesehatan gigi poltekkes surabaya, politeknik kesehatan surabaya, politeknik kesehatan kemenkes surabaya, seminar surabaya, semnas surabaya, seminar nasional surabaya, seminar jkg, seminar nasional jkg" />
   <meta name="dcterms.subject" content="semnas jkg, semnas jkg surabaya, semnas jkg poltekkes surabaya, seminar nasional, seminar nasional jkg, seminar nasional jurusan kesehatan gigi, seminar nasional jurusan kesehatan gigi surabaya, seminar nasional jurusan kesehatan gigi poltekkes surabaya, politeknik kesehatan surabaya, politeknik kesehatan kemenkes surabaya" />
   <meta name="author" content="Semnas JKG Surabaya" />
   <meta content='id' property='og:locale' />
   <meta content='website' property='og:type' />
   <meta content='Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya' property='og:title' />
-  <meta content='https://www.semnasjkg.cloud/' property='og:url' />
+  <meta content='http://www.semnasjkgsby.com/' property='og:url' />
   <meta content='Seminar Nasional Jurusan Kesehatan Gigi Poltekkes Surabaya - Merupakan komitmen kampus dalam meningkatkan kualitas pendidikan tinggi di Indonesia melalui pemberian Seminar bagi Mahasiswa Perguruan Tinggi bereputasi di dunia menuju Indonesia Maju.' property='og:description' />
   <meta content='Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya' property='og:site_name' />
   <meta content='summary_large_image' name='twitter:card' />
   <meta content='Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya' name='twitter:title' />
-  <meta content='https://www.semnasjkg.cloud/' name='twitter:domain' />
+  <meta content='https://www.semnasjkgsby.com/' name='twitter:domain' />
   <meta content='Seminar Nasional Jurusan Kesehatan Gigi Poltekkes Surabaya - Merupakan komitmen kampus dalam meningkatkan kualitas pendidikan tinggi di Indonesia melalui pemberian Seminar bagi Mahasiswa Perguruan Tinggi bereputasi di dunia menuju Indonesia Maju.' name='twitter:description' />
-  <link rel="alternate" type="application/atom+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="https://www.semnasjkg.cloud/ />
-<link rel=" alternate" type="application/rss+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="https://www.semnasjkg.cloud/" />
-  <link rel="service.post" type="application/atom+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="https://www.semnasjkg.cloud/" />
+  <link rel="alternate" type="application/atom+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="http://www.semnasjkgsby.com/ />
+<link rel=" alternate" type="application/rss+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="http://semnasjkgsby.com/" />
+  <link rel="service.post" type="application/atom+xml" title="Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya" href="http://www.semnasjkgsby.com/" />
   <script type='application/ld+json'>
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
       "name": "Semnas Jurusan Kesehatan Gigi | Poltekkes Surabaya",
-      "url": "https://www.semnasjkg.cloud/",
+      "url": "http://www.semnasjkgsby.com/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://www.semnasjkg.cloud/search?q={search_term_string}",
+        "target": "http://www.semnasjkgsby.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -207,7 +207,7 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
                 <p>
                   $SeminarDeskripsi
                 </p>
-                <a href='' class='btn secondary-solid-btn mr-3' data-bs-toggle='modal' data-bs-target='#BelumLogin'>Daftar Sekarang</a>
+                <a href='login' class='btn secondary-solid-btn mr-3'>Daftar Sekarang</a>
               </div>
             </div>
 
@@ -247,7 +247,7 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
                 <div class='modal-dialog'>
                   <div class='modal-content'>
                     <div class='modal-header'>
-                      <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal Daftar Seminar</h1>
+                      <h1 class='modal-title fs-5' id='exampleModalLabel'> Daftar Seminar</h1>
                       <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                     </div>
                     <form action='index?id_user=<?php echo $EnDataId ?>&id_seminar=<?php echo $EnSeminarId ?>' method='post'>
@@ -320,56 +320,6 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
 
   </section>
 
-  <section class="wrapper bg-light">
-    <div class="container">
-      <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-        <div class="col-lg-7 order-lg-2">
-          <figure>
-            <img class="img-fluid" src="images/fasilitas.png" alt="" />
-          </figure>
-        </div>
-        <!--/column -->
-        <div class="col-lg-5">
-          <h2 class="fs-16 text-uppercase text mb-3"> Apa saja fasilitas yang akan kalian dapatkan?</h2>
-          <span class="animate-border"></span>
-          <p class="lead">&nbsp;</p>
-          <!-- <h3 class="display-4 mb-5">
-            Apa saja fasilitas yang akan kalian dapatkan?
-          </h3> -->
-          <p class="mb-6"></p>
-          <div class="row gy-3">
-            <div class="col-xl-6 ">
-              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
-                <li>
-                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> Materi Literasi Digital</span>
-                </li>
-                <li class="mt-3">
-                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> E-sertifikat</span>
-                </li>
-              </ul>
-            </div>
-
-            <!--/column -->
-            <div class="col-xl-6">
-              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
-                <li>
-                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> Seminar Kit</span>
-                </li>
-                <li class="mt-3">
-                  <span><i class="fa-solid fa-circle-check" style="color : #e80566;"></i></span><span> Voucher E-Money</span>
-                </li>
-              </ul>
-            </div>
-            <!--/column -->
-          </div>
-          <!--/.row -->
-        </div>
-        <!--/column -->
-      </div>
-      <!--/.row -->
-    </div>
-    <!-- /.container -->
-  </section>
 
   <!--<div class="client-section ptb-100" style="-->
   <!--        background: url('https://beasiswadosen.kemdikbud.go.id/v2/assets/frontend/img/client-bg.jpg')-->
@@ -409,25 +359,6 @@ $data_id_kampus = $_SESSION["ses_id_kampus"];
   </div>
   <!--body content wrap end-->
 
-  <!-- Modal Belum Login -->
-  <div class="modal fade" id="BelumLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <h6>Anda Belum Login, Harap Login Terlebih Dahulu</h6>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- End Modal Belum Login -->
 
   <?php
 

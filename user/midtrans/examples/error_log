@@ -1,2 +1,54 @@
 [18-Mar-2023 11:45:36 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/user/midtrans/Midtrans/Notification.php on line 26
 [22-Mar-2023 17:12:14 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasjk/public_html/user/midtrans/Midtrans/Notification.php on line 26
+[26-May-2023 07:09:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 07:11:10 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasj1/public_html/user/midtrans/Midtrans/Notification.php on line 26
+[26-May-2023 07:11:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:49
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(49): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 49
+[26-May-2023 07:12:08 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 07:12:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 07:14:06 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 07:14:16 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 07:20:40 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:49
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(49): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 49
+[26-May-2023 07:20:58 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 07:22:02 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 07:23:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'semnasjk_semjkg'@'localhost' (using password: YES) in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php:37
+Stack trace:
+#0 /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php(37): mysqli_connect()
+#1 {main}
+  thrown in /home/semnasj1/public_html/user/midtrans/examples/notification-handler.php on line 37
+[26-May-2023 13:33:18 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/semnasj1/public_html/user/midtrans/Midtrans/Notification.php on line 26

@@ -30,11 +30,11 @@ $fraud = $notif->fraud_status;
 
 if ($transaction == "settlement") {
 
-    $server = "localhost";
-    $username = "semnasjk_semjkg";
-    $password = "(I)4?Ns[,gI#";
-    $db = "semnasjk_db_semnas";
-    $koneksi = mysqli_connect($server, $username, $password, $db);
+$server = "localhost";
+$username = "semnasj1_semnas";
+$password = "Semnaspassword#23";
+$db = "semnasj1_db_semnas2";
+$koneksi = mysqli_connect($server, $username, $password, $db);
 
 
 
@@ -42,11 +42,11 @@ if ($transaction == "settlement") {
 } else {
 
 
-    $server = "localhost";
-    $username = "semnasjk_semjkg";
-    $password = "(I)4?Ns[,gI#";
-    $db = "semnasjk_db_semnas";
-    $koneksi = mysqli_connect($server, $username, $password, $db);
+$server = "localhost";
+$username = "semnasj1_semnas";
+$password = "Semnaspassword#23";
+$db = "semnasj1_db_semnas2";
+$koneksi = mysqli_connect($server, $username, $password, $db);
 
     mysqli_query($koneksi, "update tb_pendaftaran set status = 'belum_bayar' where id = '$order_id'");
 }

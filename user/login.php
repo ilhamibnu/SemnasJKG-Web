@@ -44,7 +44,7 @@ session_start();
                                     <div class="col-lg-5 col-md-6">
                                         <div class="card-body p-5">
                                             <div class="form-group d-flex align-items-center justify-content-between">
-                                                <a class="btn btn-primary" href="index"><i class="fa fa-arrow-left"></i></a>
+                                                <a class="btn btn-primary" href="/"><i class="fa fa-arrow-left"></i></a>
                                                 <!-- <button type="submit" name="submit" class="btn btn-primary">Login</button> -->
                                             </div>
                                             <!-- Auth header with logo image-->

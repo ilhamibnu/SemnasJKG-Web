@@ -116,7 +116,7 @@ if (isset($_SESSION["ses_username"]) == "") {
 
                 <div class="single-promo-2 single-promo-hover text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded align-items-center">
                   <h4>Informasi Penting</h4>
-                  <p>Pastikan sebelum mengunduh e-sertifikat, silahkan cek kembali nama dan email anda, e-sertifikat hanya dapat di download sekali saja, dikirim melalui email anda, apabila terdapat kesalahan segera lakukan perubahan melalui menu profil, karena nama yang terdaftar akan tercantum pada e-sertifikat yang tergenerate secara otomatis lalu dikirim ke email anda, sekian terimakasih.</p>
+                  <p class="font-weight-bold" style="font-size: 16px;">Pastikan sebelum mengunduh e-sertifikat, silahkan cek kembali nama dan email anda, e-sertifikat hanya dapat di download sekali saja, dikirim ke alamat email anda yang telah didaftarkan, apabila terdapat kesalahan segera lakukan perubahan melalui menu profil, karena nama yang terdaftar akan tercantum pada e-sertifikat yang tergenerate secara otomatis lalu dikirim ke alamat email anda, sekian terimakasih.</p>
                 </div>
               </div>
 
@@ -233,7 +233,7 @@ if (isset($_SESSION["ses_username"]) == "") {
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Unduh</h1>
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Unduh</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

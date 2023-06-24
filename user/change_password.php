@@ -137,15 +137,15 @@ $mail = new PHPMailer(true);
     //Server settings
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'mail.semnasjkg.cloud';                     //Set the SMTP server to send through
+    $mail->Host       = 'mail.semnasjkgsby.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = '';                     //SMTP username
-    $mail->Password   = '';                               //SMTP password
+    $mail->Username   = 'admin@semnasjkgsby.com';                     //SMTP username
+    $mail->Password   = '%CQw$!a@@#%U';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('admin@semnasjkg.cloud', 'Admin Semnas JKG');
+    $mail->setFrom('admin@semnasjkgsby.com', 'Admin Semnas JKG');
     $mail->addAddress($emailuser);     //Add a recipient
 
     $Code = substr((str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")), 0, 10);
@@ -153,7 +153,7 @@ $mail = new PHPMailer(true);
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Password Reset';
-    $mail->Body    = 'To reset your password, please click the link below:<br><br><a href="https://semnasjkg.cloud/user/reset_password?code=' . base64_encode($Code) . '">Reset Password</a>';
+    $mail->Body    = 'To reset your password, please click the link below:<br><br><a href="http://semnasjkgsby.com/user/reset_password?code=' . base64_encode($Code) . '">Reset Password</a>';
 
 
     $query = "UPDATE tb_user SET code = '$Code' WHERE email = '$emailuser'";
